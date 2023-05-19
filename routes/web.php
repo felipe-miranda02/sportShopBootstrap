@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::resource('talles', App\Http\Controllers\TalleController::class)->middleware('auth','verified');
+Route::resource('marcas', App\Http\Controllers\MarcaController::class)->middleware('auth','verified');
+Route::resource('tipos', App\Http\Controllers\TipoController::class)->middleware('auth','verified');
+Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth','verified');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

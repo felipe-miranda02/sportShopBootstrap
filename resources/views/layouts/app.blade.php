@@ -29,9 +29,27 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    
+                    @if(Auth::check())
+                        <ul class="navbar-nav me-auto">
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
+                            </li>
 
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('marcas.index') }}">{{ __('Marcas') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('tipos.index') }}">{{ __('Tipos') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('talles.index') }}">{{ __('Talles') }}</a>
+                            </li>
+                        </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
